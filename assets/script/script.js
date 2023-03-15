@@ -57,7 +57,7 @@ botaoFecharCadastro.addEventListener('click',e => {
 
     adicionarCadastro.addEventListener('click', addCliente)
 
-
+// RENDERIZAR NA TELA 
 
 function renderizar() {
     let clientes = document.querySelector('.clientes')
@@ -66,21 +66,34 @@ function renderizar() {
         clientes.innerHTML += `
         <div class="tabela-clientes">
             <div class="pegarinfo">
-             <h2> Nome: ${cliente.nome}</h2>
+             <h2> Nome: </h2>
+             <h2>${cliente.nome}</h2>
              </div>
              <div class="pegarinfo">
-             <h2> Email: ${cliente.email}</h2>
+             <h2> Email:</h2>
+             <h2> ${cliente.email}</h2>
              </div>
              <div class="pegarinfo">
-             <h2> Celular: ${cliente.celular}</h2>
+             <h2> Celular: </h2>
+             <h2>${cliente.celular}</h2>
              </div>
              <div class="pegarinfo">
-             <h2> Cidade: ${cliente.cidade}</h2>
+             <h2> Cidade: </h2>
+             <h2>${cliente.cidade}</h2>
              </div>
-        
+        <div class="button-delete-edit">
+        <button class="edit-apg">Editar</button>
+        <button class="edit-apg">Apagar</button>
+        </div>
         </div>
         `
     })
+
+    if(guardarClientes.length === 8) {
+        guardarClientes.pop()
+     alert(`O máximo de clientes é 8`)
+    
+    }
     
 }
 
