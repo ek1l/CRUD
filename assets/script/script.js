@@ -62,7 +62,7 @@ botaoFecharCadastro.addEventListener('click',e => {
 function renderizar() {
     let clientes = document.querySelector('.clientes')
     clientes.innerHTML = ''
-    guardarClientes.forEach(cliente => {
+    guardarClientes.forEach((cliente,idx) => {
         clientes.innerHTML += `
         <div class="tabela-clientes">
             <div class="pegarinfo">
@@ -82,8 +82,9 @@ function renderizar() {
              <h2>${cliente.cidade}</h2>
              </div>
         <div class="button-delete-edit">
-        <button class="edit-apg">Editar</button>
-        <button class="edit-apg">Apagar</button>
+        <button onclick=" editarCliente(${idx})" class="edit-apg">Editar</butto>
+        <button onclick="apagarEl(${idx})" class="edit-apg apg" >Apagar</button>
+        
         </div>
         </div>
         `
@@ -97,6 +98,55 @@ function renderizar() {
     
 }
 
+
+function apagarEl(idx) {
+guardarClientes = guardarClientes.filter((_,idxEl)=> {
+    return idxEl != idx
+
+})
+renderizar()
+}
+
+
+
+// Deletar 
+
+function editarCliente(idx) {
+    const cliente = guardarClientes[idx];
+
+    document.querySelector("#name").value = cliente.nome;
+    document.querySelector("#email").value = cliente.email;
+    document.querySelector("#celular").value = cliente.celular;
+    document.querySelector("#cidade").value = cliente.cidade;
+
+    containerCadastro.style.display = "block";
+
+    adicionarCadastro.style.display = "none";
+    document.querySelector("#salvar-cliente").style.display = "block";
+
+    adicionarCadastro.dataset.idx = idx;
+  }
+
+  
+
+  function salvarCliente() {
+    const idx = adicionarCadastro.dataset.idx;
+    const pegarNome = document.querySelector("#name").value;
+    const pegarEmail = document.querySelector("#email").value;
+    const pegarCelular = document.querySelector("#celular").value;
+    const pegarCidade = document.querySelector("#cidade").value;
+    let chamarCadastro = new Cadastro(
+      pegarNome,
+      pegarEmail,
+      pegarCelular,
+      pegarCidade
+    );
+    guardarClientes[idx] = chamarCadastro;
+    renderizar();
+    containerCadastro.style.display = "none";
+    adicionarCadastro.style.display = "block";
+    document.querySelector("#salvar-cliente").style.display = "none";
+  }
 
 
 

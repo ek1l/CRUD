@@ -19,6 +19,27 @@ body {
 
 }
 
+#salvar-cliente {
+    display: none;
+    border-radius: 20px;
+    background-color: black;
+   color:  rgb(3, 255, 3);
+   font-weight: bold;
+   width: 150px;
+   height: 50px;
+   cursor: pointer;
+   transition: 0.3s;
+   border: 2px solid #03ff03;
+
+}
+
+#salvar-cliente:hover {     
+
+    width: 160px;
+    color:  rgb(3, 177, 3);
+
+}
+
 
 .caixa {
     display: flex;
@@ -153,5 +174,16 @@ form label {
 
 
 .edit-apg {
-    
+border: 1px solid #03ff03;
+width: 100px;
+height: 35px;
+cursor: pointer;
+transition: 0.3s;
+background-color: black;
+color: #03ff03;
+}
+
+.edit-apg:hover {
+    color: #038b03;
+    border: 1px solid #038b03;
 }

@@ -33,18 +33,19 @@
     </div>
     <form id="form-refresh" action="">
         <label for="name">Nome:</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
 
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
+        <input type="email" name="email" id="email" required>
 
         <label for="celular">Celular:</label>
-        <input type="text" name="celular" id="celular">
+        <input type="number" name="celular" id="celular" required>
 
         <label for="cidade">Cidade:</label>
-        <input type="text" name="cidade" id="cidade">
+        <input type="text" name="cidade" id="cidade" required>
 
         <input id="cadastrar-cliente" type="submit" value="ENVIAR">
+        <button onclick="salvarCliente()" id="salvar-cliente">SALVAR</button>
     </form>
 </div>
 </div>
